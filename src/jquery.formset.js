@@ -55,22 +55,30 @@
             insertDeleteLink = function(row) {
                 var delCssSelector = $.trim(options.deleteCssClass).replace(/\s+/g, '.'),
                     addCssSelector = $.trim(options.addCssClass).replace(/\s+/g, '.');
+
+                if (options.deleteImage) {
+                    deleteElement = '<img src="' + options.deleteImage + '" />';
+                } else {
+                    deleteElement = options.deleteText;
+                }
+
                 if (row.is('TR')) {
                     // If the forms are laid out in table rows, insert
                     // the remove button into the last table cell:
-                    row.children(':last').append('<button type="button" class="' + options.deleteCssClass +'">' + options.deleteText + '</button>');
+                    row.children(':last').append('<button type="button" class="' + options.deleteCssClass +'">' + deleteElement + '</button>');
                 } else if (row.is('UL') || row.is('OL')) {
                     // If they're laid out as an ordered/unordered list,
                     // insert an <li> after the last list item:
-                    row.append('<li><button type="button" class="' + options.deleteCssClass + '">' + options.deleteText +'</button></li>');
+                    row.append('<li><button type="button" class="' + options.deleteCssClass + '">' + deleteElement +'</button></li>');
                 } else {
                     // Otherwise, just insert the remove button as the
                     // last child element of the form's container:
-                    row.append('<button type="button" class="' + options.deleteCssClass + '">' + options.deleteText +'</button>');
+                    row.append('<button type="button" class="' + options.deleteCssClass + '">' + deleteElement +'</button>');
                 }
                 // Check if we're under the minimum number of forms - not to display delete link at rendering
                 if (!showDeleteLinks()){
                     row.find('button.' + delCssSelector).hide();
+                } else {
                 }
 
                 row.find('button.' + delCssSelector).click(function() {
@@ -173,18 +181,24 @@
             // FIXME: Perhaps using $.data would be a better idea?
             options.formTemplate = template;
 
+            if (options.addImage) {
+                addElement = '<img src="' + options.addImage + '" />';
+            } else {
+                addElement = options.addText;
+            }
+
             if ($$.is('TR')) {
                 // If forms are laid out as table rows, insert the
                 // "add" button in a new table row:
                 var numCols = $$.eq(0).children().length,   // This is a bit of an assumption :|
-                    buttonRow = $('<tr><td colspan="' + numCols + '"><button type="button" class="' + options.addCssClass + '">' + options.addText + '</button></tr>')
+                    buttonRow = $('<tr><td colspan="' + numCols + '"><button type="button" class="' + options.addCssClass + '">' + addElement + '</button></tr>')
                                 .addClass(options.formCssClass + '-add');
                 $$.parent().append(buttonRow);
                 if (hideAddButton) buttonRow.hide();
                 addButton = buttonRow.find('button');
             } else {
                 // Otherwise, insert it immediately after the last form:
-                $$.filter(':last').after('<button type="button" class="' + options.addCssClass + '">' + options.addText + '</button>');
+                $$.filter(':last').after('<button type="button" class="' + options.addCssClass + '">' + addElement + '</button>');
                 addButton = $$.filter(':last').next();
                 if (hideAddButton) addButton.hide();
             }
@@ -219,7 +233,9 @@
     $.fn.formset.defaults = {
         prefix: 'form',                  // The form prefix for your django formset
         formTemplate: null,              // The jQuery selection cloned to generate new form instances
+        addImage: null,                  // Image for the add link (overrides text)
         addText: 'add another',          // Text for the add link
+        deleteImage: null,               // Image for the delete link (overrides text)
         deleteText: 'remove',            // Text for the delete link
         addCssClass: 'add-row',          // CSS class applied to the add link
         deleteCssClass: 'delete-row',    // CSS class applied to the delete link
