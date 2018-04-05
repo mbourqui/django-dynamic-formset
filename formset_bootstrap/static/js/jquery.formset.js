@@ -57,7 +57,7 @@
                     addCssSelector = $.trim(options.addCssClass).replace(/\s+/g, '.');
 
                 if (options.deleteImage) {
-                    deleteElement = '<img src="' + options.deleteImage + '" />';
+                    deleteElement = '<img formset_bootstrap="' + options.deleteImage + '" />';
                 } else {
                     deleteElement = options.deleteText;
                 }
@@ -182,7 +182,7 @@
             options.formTemplate = template;
 
             if (options.addImage) {
-                addElement = '<img src="' + options.addImage + '" />';
+                addElement = '<img formset_bootstrap="' + options.addImage + '" />';
             } else {
                 addElement = options.addText;
             }

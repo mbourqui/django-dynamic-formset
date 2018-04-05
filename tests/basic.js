@@ -234,13 +234,13 @@
         assert.equal($('#stacked-form .delete-row').size(), 1, 'Delete button created.');
         assert.equal(
             $('#stacked-form .delete-row').html(),
-            "<img src=\"delete.png\">",
+            "<img formset_bootstrap=\"delete.png\">",
             'Delete image created.'
         );
         assert.equal($('#stacked-form .add-row').size(), 1, 'Add button created.');
         assert.equal(
             $('#stacked-form .add-row').html(),
-            "<img src=\"add.png\">",
+            "<img formset_bootstrap=\"add.png\">",
             'Add image created.'
         );
         assert.ok($('#stacked-form div:first').hasClass('dynamic-form'), 'FormCssClass added to forms.');
