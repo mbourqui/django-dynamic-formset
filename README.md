@@ -53,7 +53,7 @@ In your templates using formsets, be sure to load the static files:
 Then include the script:
 
 ```Django
-<script src="{% static "formset_bootstrap/jquery.formset.js" %}" type="text/javascript"></script>
+<script src="{% static 'formset_bootstrap/js/jquery.formset.js' %}" type="text/javascript"></script>
 ```
 
 Finally, set up your dynamic formset:
