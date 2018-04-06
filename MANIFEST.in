@@ -1,4 +1,6 @@
 include LICENSE
+include README.rst
 include README.md
 include CHANGELOG.md
+recursive-include formset_bootstrap/static/ *
 recursive-include docs *
