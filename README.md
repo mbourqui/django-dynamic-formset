@@ -92,4 +92,4 @@ This is a fork of [django-dynamic-formset](https://github.com/elo80ka/django-dyn
   [python]:     https://www.python.org/             "Python"
   [django]:     https://www.djangoproject.com/      "Django"
   [jquery]:     http://jquery.com/                  "jQuery"
-  [Pandoc]:     http://pandoc.org/index.html        "Pandoc"
+  [pandoc]:     http://pandoc.org/index.html        "Pandoc"
