@@ -20,6 +20,7 @@ Github web site for this application, which is located at
 
 * [Python][] >= 3.4
 * [Django][] >= 1.8
+* [jQuery][] >= 1.2.6
 
 
 ## Installation
@@ -82,6 +83,10 @@ the SQLite3 database and start the development server::
     ./manage.py runserver
 
 You can now browse to ``http://localhost:8000/`` and view the examples.
+
+Credits
+
+This is a fork of [django-dynamic-formset](https://github.com/elo80ka/django-dynamic-formset) from [elo80ka](https://github.com/elo80ka).
 
 
   [python]:     https://www.python.org/             "Python"

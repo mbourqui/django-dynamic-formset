@@ -25,7 +25,7 @@ setup(
     version=__version__,
     author='Marc Bourqui',
     author_email='pypi.kemar@bourqui.org',
-    license='BSD',
+    license='BSD License',
     description='A jQuery plugin that allows you to dynamically add new forms to a rendered django formset.',
     long_description=README,
     url=REPO_URL,
