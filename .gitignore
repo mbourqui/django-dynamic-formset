@@ -1,3 +1,13 @@
-build/
-node_modules/
+# Basics
+*.py[cod]
+__pycache__
 
+# Pycharm
+.idea/*
+
+# Python packaging
+*.egg-info
+.eggs/*
+build/*
+dist/*
+README.rst
